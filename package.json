@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@material-ui/pickers": "^3.3.10",
+    "@mui/material": "^5.11.11",
+    "@mui/x-date-pickers": "^5.0.20",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -10,11 +16,23 @@
     "@types/node": "^16.18.13",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.3.4",
+    "bootstrap": "^5.2.3",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
+    "fomantic-ui-css": "^2.9.2",
+    "formik": "^2.2.9",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
+    "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
+    "semantic-ui-react": "^2.1.4",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,6 +46,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "http://localhost/build/",
   "browserslist": {
     "production": [
       ">0.2%",

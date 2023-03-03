@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+body {
+	background-color: #96c7eb;
+}
+
+.rowMT {
+	margin-top: 10px !important;
+}
+
+.primaryC {
+	background-color: #3a33d4 !important;
+	color: white !important;
+}
+.secundary {
+	background-color: #33bad4 !important;
+	color: white !important;
+}
+
+.danger {
+	background-color: #D10C06 !important;
+  margin-top: 1px !important;
+  color: white !important;
+}
+.dangerError {
+	color: red !important;
+}
+
+.buttons-container {
+  display: flex; /* display flex para colocar os elementos lado a lado */
+  justify-content: space-evenly ; /* distribui o espaço igualmente entre os elementos */
+}
+
+.card {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 25px;
+	box-shadow: 2px 2px 5px !important;
+}
+
+.table {
+	box-shadow: 5px 5px 5px !important;
+}
+

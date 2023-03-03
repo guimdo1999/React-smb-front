@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "fomantic-ui-css/semantic.css";
+import { BrowserRouter , Switch, Route } from "react-router-dom";
+import "./App.css";
+import CadastrarEditar from "./pages/Cadastrar-editar";
+import Editar from "./pages/Editar";
+import ListarCadastros from "./pages/Listar-cadastros";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/build" component={ListarCadastros} />
+        <Route path="/build/cadastrar" component={CadastrarEditar} />
+        <Route path="/build/editar/:id" component={Editar} />
+      </Switch>
+    </BrowserRouter>
+    </>
   );
 }
 
