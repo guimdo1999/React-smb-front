@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/build" component={ListarCadastros} />
-        <Route path="/build/cadastrar" component={CadastrarEditar} />
-        <Route path="/build/editar/:id" component={Editar} />
+        <Route exact path="/build/cadastrar" component={CadastrarEditar} />
+        <Route exact path="/build/editar/:id" component={Editar} />
       </Switch>
     </BrowserRouter>
     </>
