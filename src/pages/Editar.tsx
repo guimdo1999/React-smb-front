@@ -3,13 +3,7 @@ import axios from "axios";
 import { editarCadastro } from "../services/globals";
 import { useHistory, useParams } from "react-router-dom";
 
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogActions,
-  DialogContent,
-} from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 import {
   MuiPickersUtilsProvider,
@@ -48,7 +42,6 @@ function Editar() {
   const [emailError, setEmailError] = useState<string>("");
   const [dataNasc, setDataNasc] = useState(new Date());
   const [dataNascError, setDataNascError] = useState<string>("");
-  const [errorString, setErrorString] = useState<number>(0);
 
   const [open, setOpen] = useState(false);
 
@@ -69,22 +62,23 @@ function Editar() {
   }, []);
 
   const inserirCadastros = useCallback(async () => {
+    let errorString = 0;
     try {
       if (nome === "") {
         setNomeError("Insira seu nome");
-        setErrorString(errorString + 1);
+        errorString++;
       } else {
         setNomeError("");
       }
       if (telefone === "") {
         setTelefoneError("Insira seu telefone");
-        setErrorString(errorString + 1);
+        errorString++;
       } else {
         setTelefoneError("");
       }
       if (email === "") {
         setEmailError("Insira seu e-mail");
-        setErrorString(errorString + 1);
+        errorString++;
       } else if (email.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
         setEmailError("");
       } else {
@@ -92,25 +86,25 @@ function Editar() {
       }
       if (dataNasc === new Date()) {
         setDataNascError("Insira uma data que não seja hoje");
-        setErrorString(errorString + 1);
+        errorString++;
       } else {
         setDataNascError("");
       }
       if (errorString > 0) {
-        setErrorString(0);
-        return;
-      }
-      setIsLoading(true);
-      setOpen(true);
-      var data = new FormData();
-      data.append("nome", nome);
-      data.append("telefone", telefone);
-      data.append("email", email);
-      data.append("data_nasc", moment(dataNasc).format("DD/MM/YYYY"));
+        errorString = 0;
+      } else {
+        setIsLoading(true);
+        setOpen(true);
+        var data = new FormData();
+        data.append("nome", nome);
+        data.append("telefone", telefone);
+        data.append("email", email);
+        data.append("data_nasc", moment(dataNasc).format("DD/MM/YYYY"));
 
-      const response = await axios.post(editarCadastro + idN, data);
-      console.log(response.data);
-      setIsLoading(false);
+        const response = await axios.post(editarCadastro + idN, data);
+        console.log(response.data);
+        setIsLoading(false);
+      }
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -130,7 +124,7 @@ function Editar() {
 
   useEffect(() => {
     getCadastro(idN);
-  }, [idN]);
+  }, [idN, getCadastro]);
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ptLocale}>
@@ -138,7 +132,7 @@ function Editar() {
         titulo="Edição efetuada."
         texto={nome + " foi atualizado!"}
         open={open}
-        handleClose={()=>handleClose()}
+        handleClose={() => handleClose()}
       />
       <div className="container">
         <div className="card">
