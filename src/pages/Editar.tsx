@@ -2,16 +2,19 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { editarCadastro } from "../services/globals";
 import { useHistory, useParams } from "react-router-dom";
+import "./Cadastrar-editar.css"
+
 
 import { Button } from "@material-ui/core";
-
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
+
 import DateFnsUtils from "@date-io/date-fns";
 import ptLocale from "date-fns/locale/pt-BR";
 import moment from "moment";
+
 import { maskTel } from "../hooks/maskTel";
 import DialogNormal from "../components/DialogNormal";
 

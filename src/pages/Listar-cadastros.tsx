@@ -7,6 +7,8 @@ import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
+import { Grid } from "@mui/material";
+import { Button } from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
 import ptLocale from "date-fns/locale/pt-BR";
 import moment from "moment";
@@ -15,8 +17,6 @@ import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import TabelaCadastros from "./../components/TabelaCadastros";
-import { Grid } from "@mui/material";
-import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 interface Cadastro {
