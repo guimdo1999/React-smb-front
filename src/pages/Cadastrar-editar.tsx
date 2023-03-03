@@ -83,9 +83,8 @@ function CadastrarEditar() {
         data.append("email", email);
         data.append("data_nasc", moment(dataNasc).format("DD/MM/YYYY"));
 
-        const response = await axios.post(inserirCadastro, data);
+        await axios.post(inserirCadastro, data);
         setOpen(true);
-        console.log(response.data);
         setIsLoading(false);
       }
     } catch (error) {

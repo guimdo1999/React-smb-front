@@ -101,8 +101,7 @@ function Editar() {
         data.append("email", email);
         data.append("data_nasc", moment(dataNasc).format("DD/MM/YYYY"));
 
-        const response = await axios.post(editarCadastro + idN, data);
-        console.log(response.data);
+        await axios.post(editarCadastro + idN, data);
         setIsLoading(false);
       }
     } catch (error) {
