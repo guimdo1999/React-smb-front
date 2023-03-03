@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { inserirCadastro } from "../services/globals";
 import { useHistory } from "react-router-dom";
-import "./Cadastrar-editar.css"
+import "./Cadastrar-editar.css";
 
 import {
   MuiPickersUtilsProvider,
@@ -42,6 +42,10 @@ function CadastrarEditar() {
   const [open, setOpen] = useState(false);
 
   function handleClose() {
+    setNome("");
+    setTelefone("");
+    setEmail("");
+    setDataNasc(new Date());
     setOpen(false);
   }
 
@@ -56,6 +60,9 @@ function CadastrarEditar() {
       }
       if (telefone === "") {
         setTelefoneError("Insira seu telefone");
+        errorString++;
+      } else if (telefone.length < 14) {
+        setTelefoneError("Seu telefone está incompleto");
         errorString++;
       } else {
         setTelefoneError("");
@@ -87,6 +94,7 @@ function CadastrarEditar() {
 
         await axios.post(inserirCadastro, data);
         setOpen(true);
+
         setIsLoading(false);
       }
     } catch (error) {

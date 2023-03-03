@@ -76,7 +76,10 @@ function Editar() {
       if (telefone === "") {
         setTelefoneError("Insira seu telefone");
         errorString++;
-      } else {
+      } else if (telefone.length < 14) {
+        setTelefoneError("Seu telefone está incompleto");
+        errorString++;
+      }else {
         setTelefoneError("");
       }
       if (email === "") {
