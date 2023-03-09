@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Front end de API de gestão de cadastros.
+
+Esse front tem tanto páginas usando apenas Material Ui e Formantic, assim como como páginas usando Bootstrap.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
